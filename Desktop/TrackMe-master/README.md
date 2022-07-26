@@ -58,8 +58,6 @@ Start the server
   
 
 
-## Authors
 
-- [@rajarshisg](https://github.com/rajarshisg)
 
   
