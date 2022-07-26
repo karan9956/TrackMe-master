@@ -15,7 +15,7 @@ The project is deployed [here](https://heroku-track-me.herokuapp.com/)
 Clone the project
 
 ```bash
-  git clone https://github.com/rajarshisg/TrackMe.git
+  git clone https://github.com/karan9956/TrackMe-master.git
 ```
 
 Go to the project directory
