@@ -56,10 +56,3 @@ Start the server
 **Server:** Node.JS, Express.JS, MongoDB
 
   
-
-
-## Authors
-
-- [@rajarshisg](https://github.com/rajarshisg)
-
-  
