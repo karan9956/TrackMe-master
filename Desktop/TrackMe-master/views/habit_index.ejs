@@ -1,0 +1,66 @@
+<!--CSS-->
+<link rel="stylesheet" type="text/css" href="/css/habit_index.css">
+
+<!--Header div-->
+<div id="habit-header">
+    <div id="header-name">TrackMe</div>
+    <div>
+        <span id="header-user-name">Welcome, <%= user_name %>!</span>&emsp;&emsp;&emsp;
+        <span id="header-log-out"><a href="/users/destroy-session">Log Out</a></span>
+    </div>
+</div>
+<!--End of header div-->
+
+<!--Root div which displays all habits-->
+<div id="habit-body">
+    <!--Header-->
+    <div id="habit-body-header">Start tracking your habits!</div>
+    <!--Links-->
+    <div id="links">
+        <div id="home"><a href="/habit">Home</a></div>
+        <div id="week"><a href="/habit/weekly">Weekly</a></div>
+        <div id="week"><a href="/habit/favourites">Favourites</a></div>
+    </div>
+    <!--End of Links-->
+
+    <!--Form-->
+    <form method="POST" action="/habit/create-habit">
+        <input type="text" name="name" placeholder="Habit Name" required>&nbsp;
+        <button type="submit">Add habit</button>
+    </form>
+    <!--End of form-->
+
+    <!--Habits-->
+    <% for(let i=0;i<habits.length;i++) { %>
+        <div class="individual-habit">
+            <div class="wrapper">
+                <div class="habit-name">
+                        <%= habits[i].name %>
+                </div>
+                <div class="mark-favourite">
+                    <% if(habits[i].favourite===false) { %>
+                        <a href="/habit/toggle-favourite/<%= habits[i]._id %>"><img
+                                src="https://cdn-icons-png.flaticon.com/512/1828/1828970.png"></a>
+                        <% }else{ %>
+                            <a href="/habit/toggle-favourite/<%= habits[i]._id %>"><img
+                                    src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png"></a>
+                            <% } %>
+                </div>
+            </div>
+            <div class="habit-stat-delete">
+                <div class="habit-stats">
+                    <p>Created At : <%= habits[i].creation_date %>
+                    </p>
+                    <p>Completed : <%= completedLength[i] %>/<%= habits[i].dates.length %>
+                    </p>
+                    <p>Highest Streak: <%= streak[i] %> days </p>
+                </div>
+                <a href="/habit/delete-habit<%= habits[i]._id %>">
+                    <div class="habit-delete"><img src="https://cdn-icons-png.flaticon.com/512/484/484560.png"></div>
+                </a>
+            </div>
+        </div>
+        <% } %>
+        <!--End of habits-->
+</div>
+<!--End of root div-->
